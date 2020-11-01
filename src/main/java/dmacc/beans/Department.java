@@ -38,7 +38,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [Type = " + type + ", Location = " + location;
+		return "Department [Type = " + type + ", Location = " + location; 
 	}
 	
 	
