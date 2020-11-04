@@ -53,6 +53,14 @@ public class WebController {
 		return "input";
 	}
 	
+	//Update method
+	@PostMapping("/update/{id}")
+	public String reviseEmployee(Employee e, Model model)
+	{
+		repo.save(e);
+		return viewAllEmployees(model);
+	}
+	
 	//Delete method
 	@GetMapping("/delete/{id}")
 	public String deleteUser(@PathVariable("id") long id, Model model)
@@ -62,5 +70,4 @@ public class WebController {
 		return viewAllEmployees(model);
 	}
 	
-	//
 }

@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>All Employees</title>
 </head>
 <body>
-
+<form>
+<table>
+<tr th:each="currentEmployee : ${employees}">
+	<td th:text="${currentEmployee.id}"/>
+	<td th:text="${currentEmployee.lastName}"/>
+	<td th:text="${currentEmployee.firstName}"/>
+	<td th:text="${currentEmployee.phone}"/>
+	<td th:text="${currentEmployee.department.type}"/>
+	<td th:text="${currentEmployee.department.location}"/>
+	<td><a th:href="@{/edit/{id}(id=${currentEmployee.id})}">Edit</a>
+	<td><a th:href="@{/delete/{id}(id=${currentEmployee.id})}">Delete</a>
+</tr>
+</table>
+</form>
+<a href="../inputEmployee">Add a new Employee</a>
 </body>
 </html>
