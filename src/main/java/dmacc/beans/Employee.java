@@ -7,16 +7,19 @@ import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String lastName;
-	private String firstName;
-	private String phone;
+	@Getter @Setter private long id;
+	@Getter @Setter private String lastName;
+	@Getter @Setter private String firstName;
+	@Getter @Setter private String phone;
 	@Autowired
-	private Department department;
+	@Getter @Setter private Department department;
 	
 	//Constructors
 	public Employee() {
@@ -42,37 +45,6 @@ public class Employee {
 		this.phone = phone;
 	}
 	
-	//getters and setters
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public Department getDepartment() {
-		return department;
-	}
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
 	@Override
 	public String toString() {
 		return "Employee [Id = " + id + ", Last Name = " + lastName + ", First Name = " 

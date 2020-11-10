@@ -2,10 +2,14 @@ package dmacc.beans;
 
 import javax.persistence.Embeddable;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 @Embeddable
 public class Department {
-	private String type;	
-	private String location;
+	@Getter @Setter private String type;	
+	@Getter @Setter private String location;
 	
 	//Constructors
 	public Department() {
@@ -19,22 +23,6 @@ public class Department {
 		this.location = location;
 	}
 	
-	//getters and setters
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
 
 	@Override
 	public String toString() {
