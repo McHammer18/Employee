@@ -3,9 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Add employee</title>
+<script type="text/javascript">
+	//Form validation to check for inputs
+	function validate()
+	{
+		if(document.EmployeeForm.id.value == "")
+		{
+			alert("Please provide an id number");
+			document.EmployeeForm.id.focus();
+			return false;
+		}
+		if(document.EmployeeForm.firstName.value == "")
+			{
+				alert("Please provide a first name");
+				document.EmployeeForm.firstName.focus();
+				return false;
+			}
+		if(document.EmployeeForm.lastName.value == "")
+		{
+			alert("Please provide a last name");
+			document.EmployeeForm.lastName.focus();
+			return false;
+		}
+		if(document.EmployeeForm.phone.value == "")
+		{
+			alert("Please provide a phone number");
+			document.EmployeeForm.phone.focus();
+			return false;
+		}
+		if(document.EmployeeForm.department.type.value == "")
+		{
+			alert("Please provide a the department you work in");
+			document.EmployeeForm.departmenttype.focus();
+			return false;
+		}
+		if(document.EmployeeForm.departmentlocation.value == "")
+		{
+			alert("Please provide a the department location that you work in");
+			document.EmployeeForm.departmentlocation.focus();
+			return false;
+		}
+		return (true);
+	}
+</script>
+
 </head>
 <body>
-<form th:object="${newEmployee}" th:action="@{/update/{id}(id=${newEmployee.id})}" method='POST'>
+<form th:object="${newEmployee}" name = "EmployeeForm" th:action="@{/update/{id}(id=${newEmployee.id})}" method='POST' onsubmit = "return(validate());">
 ID: <input name="id" size="10"> <br />
 First Name: <input name="firstName" size="20" th:field="*{firstName}"> <br />
 Last Name: <input name="lastName" size="20" th:field="*{lastName}"> <br />

@@ -7,8 +7,10 @@ import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Entity
 public class Employee {
@@ -26,6 +28,7 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Employee(String lastName, String firstName) {
 		super();
 		this.lastName = lastName;
@@ -50,6 +53,7 @@ public class Employee {
 		return "Employee [Id = " + id + ", Last Name = " + lastName + ", First Name = " 
 				+ firstName + ", Phone = " + phone + ", Department = " + department;
 	}
+
 	
 	
 	
